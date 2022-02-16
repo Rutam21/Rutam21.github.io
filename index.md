@@ -9,19 +9,19 @@ Digital Ocean is a Cloud computing platform that provides cloud computing servic
 
 Today, we will be deploying the MindsDB server on a Digital Ocean Droplet (a scalable virtual machine on DO Platform) and trying to connect to it using our local MySQL client or Dbeaver.
 
-Step 1: Sign up for a [Digital Ocean](https://try.digitalocean.com/freetrialoffer/) account if you don't have one yet. They provide 100$ Credits when you sign up so that you can try it for free.
+**Step 1:** Sign up for a [Digital Ocean](https://try.digitalocean.com/freetrialoffer/) account if you don't have one yet. They provide 100$ Credits when you sign up so that you can try it for free.
 
 ![image](DOSignup.PNG)
 
-Step 2: Once you've created an account, you should see a dashboard like this. If you look towards the left panel, you can find the `Droplets` option. Now click on Droplets.
+**Step 2:** Once you've created an account, you should see a dashboard like this. If you look towards the left panel, you can find the `Droplets` option. Now click on Droplets.
 
 ![image](DoDashboard.PNG)
 
-Step 3: Once you are in the Droplets Dashboard, hit `Create Droplet`.
+**Step 3:** Once you are in the Droplets Dashboard, hit `Create Droplet`.
 
 ![image](DropletDash.PNG)
 
-Step 4: Now the `Create Droplet` dashboard opens. Here you need to choose the configurations you want for your virtual machine and can also select any additional applications you want to install on your VM from the Marketplace. For now, we will move ahead with the following configurations that would boot up a standard VM for us with the required performance.
+**Step 4:** Now the `Create Droplet` dashboard opens. Here you need to choose the configurations you want for your virtual machine and can also select any additional applications you want to install on your VM from the Marketplace. For now, we will move ahead with the following configurations that would boot up a standard VM for us with the required performance.
 
 **Distributions** : Ubuntu 20.04(LTS) x64 <br/>
 **Choose a Plan** : Shared CPU (Basic) <br/>
@@ -38,11 +38,11 @@ Hit `Create Droplet` and wait for a while till it spins one for us in the cloud.
 
 ![image](CreateDropletDash.PNG)
 
-Step 5: Once your Droplet is created, you can always click on the `Droplets` in the left Navigation pane and Click on the Droplet name to go into the Droplet Dashboard details. Now clock on the `Console` from the right top. This should open up a terminal for you where you can interact with your VM.
+**Step 5:** Once your Droplet is created, you can always click on the `Droplets` in the left Navigation pane and Click on the Droplet name to go into the Droplet Dashboard details. Now clock on the `Console` from the right top. This should open up a terminal for you where you can interact with your VM.
 
 ![image](CreatedDroplet.PNG)
 
-Step 6: Now while you are inside the console, simply check whether Docker is installed or not using the following command.
+**Step 6:** Now while you are inside the console, simply check whether Docker is installed or not using the following command.
 
 ```
 docker run hello-world
@@ -51,7 +51,7 @@ If the command successfully returns `Hello From Docker`, then you're good to go.
 
 ![image](DockerHello.PNG)
 
-Step 7: Now we will use the following commands in sequence to get done with the installation of MindDB Sever.
+**Step 7:** Now we will use the following commands in sequence to get done with the installation of MindDB Sever.
 
 ```
 docker pull mindsdb/mindsdb
@@ -65,7 +65,7 @@ docker pull mindsdb/mindsdb_beta
 
 ![image](DockerMindsDB.PNG)
 
-Step 8: After that, we need to publish the ports so that we can hit the endpoints and communicate with the MindsDB Server in our Droplet. So, we will first expose the MindsDB GUI Port and then the MySQL Port that we will be using for now with the commands below.
+**Step 8:** After that, we need to publish the ports so that we can hit the endpoints and communicate with the MindsDB Server in our Droplet. So, we will first expose the MindsDB GUI Port and then the MySQL Port that we will be using for now with the commands below.
 
 **MindsDB GUI**
 ```
@@ -81,7 +81,7 @@ You can always follow the [MindsDB Getting Started](https://docs.mindsdb.com/inf
 
 ![image](DockerRunMindsDB.PNG)
 
-Step 9: You might see a warning on the console after you run the above command that some data sources may not be available and you can always find details on how to add the specific data source on the [MindDB Repo](https://github.com/mindsdb/datasources#installing-additional-dependencies). For now, we will add the data source for `MSSQL` using the command below. Open another console for the droplet and run it if MindsDB is still running in the first console.
+**Step 9:** You might see a warning on the console after you run the above command that some data sources may not be available and you can always find details on how to add the specific data source on the [MindDB Repo](https://github.com/mindsdb/datasources#installing-additional-dependencies). For now, we will add the data source for `MSSQL` using the command below. Open another console for the droplet and run it if MindsDB is still running in the first console.
 
 ```
 pip install mindsdb-datasources[mssql]
@@ -97,11 +97,11 @@ apt install python3-pip
 
 You may encounter a few errors with regards to the versioning of `pandas` and `scramp` which you can ignore.
 
-Step 10: Now you can access the MindsDB GUI using the Droplet `IPv4:47334`. Make sure you have turned off any VPN service you're using or else you may not be able to connect to the GUI using the URL.
+**Step 10:** Now you can access the MindsDB GUI using the Droplet `IPv4:47334`. Make sure you have turned off any VPN service you're using or else you may not be able to connect to the GUI using the URL.
 
 ![image](MindsDbGUI.PNG)
 
-Step 11: This step enables us to connect a database client to our MindsDB server. For now, I would be using [DBeaver](https://dbeaver.io/) to do the same. You can also connect your local MySQL server following the steps [here](https://docs.mindsdb.com/sql/connect/cloud/).
+**Step 11:** This step enables us to connect a database client to our MindsDB server. For now, I would be using [DBeaver](https://dbeaver.io/) to do the same. You can also connect your local MySQL server following the steps [here](https://docs.mindsdb.com/sql/connect/cloud/).
 
 > **NOTE:** You should follow the local deployment steps instead of cloud as this is a local instance hosted on the cloud and not the official MindsDB cloud edition. The default username is `mindsdb` and the default password is empty.
 
