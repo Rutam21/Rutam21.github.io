@@ -14,15 +14,15 @@ Digital Ocean is a great cloud computing platform and it offers several cloud re
 
 **Step 1:** Sign in to Digital Ocean or create an account if you don't have an account yet. You can signup instantly and they provide 100$ credits for trial.
 
-![image](DOSignup.PNG)
+![image](DOSignup.png)
 
 **Step 2:** Once you're logged in, you can find `Kubernetes` listed in the left navigation pane. Click on that and wait till it navigates to the next dashboard.
 
-![image](DODash.PNG)
+![image](DODash.png)
 
 **Step 3:** In the Kubernetes dashboard, simply click on `Create a Kubernetes Cluster` to start with the configuration process.
 
-![image](CreateK8.PNG)
+![image](CreateK8.png)
 
 **Step 4:** Now you need to fill up the configuration details for your cluster as per requirement. However, for a trial purpose, you can set up with the configuration given below.
 
@@ -41,16 +41,16 @@ Digital Ocean is a great cloud computing platform and it offers several cloud re
 
 Now click on `Create Cluster` and wait till it is provisioned (takes usually 4 mins).
 
-![image](CreateCluster.PNG)
+![image](CreateCluster.png)
 
 **Step 5:** Now it's time to set up a few things for our cluster before we dive into the `Robusta` installation on top of it.
 
-![image](ClusterGetStarted.PNG)
+![image](ClusterGetStarted.png)
 
 - **Getting Started** <br/>
 Click on Get started. On the next screen that appears, we need to choose a client that we want to use to interact with our cluster. Also, we need to set up an authentication certification method to authorize the client to connect to our clusters which lasts for 7 days.
 
-![image](K8sConnect.PNG)
+![image](K8sConnect.png)
 
 - **Connecting to Kubernetes** <br/>
 You can either set up an automated way of doing this or a manual way where you need to download the `cluster config` file every 7 days and run the below command putting the config file in your `.kube` folder in your system. We would proceed with the manual method for now.
@@ -61,24 +61,24 @@ cd ~/.kube && kubectl --kubeconfig="Name of your config file" get nodes
 
 This should return you the list of nodes for your cluster.
 
-![image](Nodes.PNG)
+![image](Nodes.png)
 
 > **NOTE:** If you want to set up the automated mode, then you need to install and configure the `doctl` first. You can find the installation steps [here](https://docs.digitalocean.com/reference/doctl/how-to/install/).
 
 - **Patch & minor upgrades** <br/>
 You can opt for patches and minor version upgrades in this window. Simply select `Automatically install minor version patches` and specify a time window when the cluster should upgrade. Click on `Save and Continue`.
 
-![image](PatchNode.PNG)
+![image](PatchNode.png)
 
 - **Install 1-click Apps** <br/>
 Here you can choose and install apps in your cluster directly from the marketplace. You can skip it for now.
 
-![image](Apps.PNG)
+![image](Apps.png)
 
 - **Next Steps** <br/>
 Now we are done with our configuration. You can simply download the cluster config and store it safely and click on `Great, I'm done` to complete the configuration process.
 
-![image](Done.PNG)
+![image](Done.png)
 
 ## Installing Robusta on our Cluster
 
@@ -90,7 +90,7 @@ As our cluster is provisioned and fully configured now, we will now start instal
 helm repo add robusta https://robusta-charts.storage.googleapis.com && helm repo updatepip install -U robusta-cli --no-cache
 ```
 
-![image](robustaCLI.PNG)
+![image](robustaCLI.png)
 
 **Step 2:** Now we need to generate a config file for Robusta. While we fetch the config file, we can also enable the Robusta UI and slack/teams integration to receive alerts when something fails.
 
@@ -100,19 +100,19 @@ robusta gen-config
 
 There will be a number of inputs required from your end to run this command successfully. You can follow the snippet below.
 
-![image](robustaSetup.PNG)
+![image](robustaSetup.png)
 
 You need to authorize the Slack integration and specify the workspace and the respective channel where you want to integrate and receive the alerts.
 
-![image](AddSlack.PNG)
+![image](AddSlack.png)
 
 Once you have authorized, you will be redirected to the page below and then you can proceed in your terminal with the remaining ones.
 
-![image](SlackDone.PNG)
+![image](SlackDone.png)
 
 Once all the steps are completed successfully, a `generated_values.yaml` file is generated that contains your Robusta account credentials. Store it safely for future use. You should also receive an alert in your workspace channel that robusta has been added there.
 
-![image](IntegrationAlert.PNG)
+![image](IntegrationAlert.png)
 
 **Step 3:** Now we are gonna install Robusta using Helm. The `generated_values.yaml` would act as the `values.yaml` for helm here.
 
@@ -122,7 +122,7 @@ helm install robusta robusta/robusta -f ./generated_values.yaml
 
 This should install robusta successfully in your cluster.
 
-![image](RobustaInstall.PNG)
+![image](RobustaInstall.png)
 
 > **NOTE:** If the above command errors out saying `Unable to connect to the server`, then cross-check the config file in the `.kube` folder and make sure it has the same details as your downloaded cluster config file.
 
@@ -132,7 +132,7 @@ This should install robusta successfully in your cluster.
 kubectl get pods
 ```
 
-![image](RobustaRunner.PNG)
+![image](RobustaRunner.png)
 
 ## Testing alerts for a Crashing Pod
 
@@ -146,23 +146,23 @@ kubectl apply -f https://gist.githubusercontent.com/robusta-lab/283609047306dc1f
 
 **Step 2:** Now run the following to check whether the `crashpod` is deployed and has reached 2 restarts or not that would trigger an alert in Slack.
 
-![image](CrashPod.PNG)
+![image](CrashPod.png)
 
 **Step 3:** Open slack and check in the specified workspace's channel whether you have received an alert or not.
 
-![image](Alerts.PNG)
+![image](Alerts.png)
 
 **Step 4:** It's time to move to the UI now. Navigate to `https://platform.robusta.dev/` and log in using the same Gmail that you mentioned while generating the robusta config file.
 
-![image](UISignin.PNG)
+![image](UISignin.png)
 
 Once you are logged in, you can see the dashboard with all the pods in all namespaces, and the ones with issues or errors are marked as well.
 
-![image](UIDash.PNG)
+![image](UIDash.png)
 
 You can also click on each pod card and dive in for more information on the errors or issues with all the details and timestamps i.e., a complete analysis of the breakdown if any.
 
-![image](DashDetails.PNG)
+![image](DashDetails.png)
 
 Well, we have reached the end of this extensive tutorial. Time to give a pat on your back for following along and successfully utilizing such an amazing tool **`Robusta`**. I hope all of you found this really helpful and it covered almost all minute details that you may come across. Feel free to like this article and drop in any comments or suggestions you may have.
 <br/><br/>
