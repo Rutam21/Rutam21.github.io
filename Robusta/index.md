@@ -56,7 +56,7 @@ Click on Get started. On the next screen that appears, we need to choose a clien
 You can either set up an automated way of doing this or a manual way where you need to download the `cluster config` file every 7 days and run the below command putting the config file in your `.kube` folder in your system. We would proceed with the manual method for now.
 
 ```javascript
-cd ~/.kube && kubectl --kubeconfig="Name of your config file" get node
+cd ~/.kube && kubectl --kubeconfig="Name of your config file" get nodes
 ```
 
 This should return you the list of nodes for your cluster.
