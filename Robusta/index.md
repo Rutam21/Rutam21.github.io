@@ -1,5 +1,7 @@
 # Getting Started with Robusta on Digital Ocean
 
+![image](R.gif)
+
 ## Introduction
 
 Robusta is an open-source platform for Kubernetes troubleshooting and automation. It makes it really easier to figure out pod crashes, send in alerts and describe a detailed analysis report on the breakdown.
