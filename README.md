@@ -1,1 +1,1 @@
-# Rutam21.github.io
+This repository contains my blogs that I write ocassionally.
