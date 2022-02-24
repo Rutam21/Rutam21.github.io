@@ -1,5 +1,7 @@
 # Deploying MindsDB on Digital Ocean
 
+![image](mindsdb.gif)
+
 ## Introduction
 MindsDB has the vision to enforce advanced predictive capabilities directly in our Database. With this, anyone who knows SQL can utilize the built-in machine learning techniques without needing any other outsourced tools or training. In short, MindsDB aims to provide intelligent databases to make better data-driven decisions in the existing database without the effort of creating a new one. 
 
