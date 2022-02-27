@@ -129,7 +129,7 @@ Now, this completes the authorization process and you can close this tab and con
 
 Once the step completes successfully, store the `generated_values.yaml` securely for future use.
 
-> **NOTE:** I had a Robusta account already. So, I had to provide the Robusta account token which is available in `generated_values.yaml` that was created for me when I initially signed up for a Robusta account and generated the Robusta config file. If you don't have an account, you can simply select `N` when asked and then provide a Gmail with which you want to log in to the UI. You can follow the snipped below.
+> **NOTE:** I had a Robusta account already. So, I had to provide the Robusta account token which is available in `generated_values.yaml` that was created for me when I initially signed up for a Robusta account and generated the Robusta config file. If you don't have an account, you can simply select `N` when asked and then provide a Gmail with which you want to log in to the UI. You can follow the snippet below.
 
 ![image](robustaSetup.png)
 
