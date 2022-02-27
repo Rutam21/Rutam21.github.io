@@ -131,7 +131,7 @@ Once the step completes successfully, store the `generated_values.yaml` securely
 
 > **NOTE:** I had a Robusta account already. So, I had to provide the Robusta account token which is available in `generated_values.yaml` that was created for me when I initially signed up for a Robusta account and generated the Robusta config file. If you don't have an account, you can simply select `N` when asked and then provide a Gmail with which you want to log in to the UI. You can follow the snipped below.
 
-![image](RobustaSetup.png)
+![image](robustaSetup.png)
 
 **Step 3:** It's time to install Robusta now using Helm. We will use the `generated_values.yaml` as the `values.yaml` for Helm here.
 
