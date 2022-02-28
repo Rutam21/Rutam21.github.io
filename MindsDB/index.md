@@ -69,14 +69,9 @@ docker pull mindsdb/mindsdb_beta
 
 **Step 8:** After that, we need to publish the ports so that we can hit the endpoints and communicate with the MindsDB Server in our Droplet. So, we will first expose the MindsDB GUI Port and then the MySQL Port that we will be using for now with the commands below.
 
-**MindsDB GUI**
+**MindsDB GUI with MySQL API**
 ```
-docker run -p 47334:47334 mindsdb/mindsdb
-```
-
-**MindsDB MySQL API**
-```
-docker run -p 47335:47335 mindsdb/mindsdb
+docker run -p 47334:47334 -p 47335:47335 mindsdb/mindsdb
 ```
 
 You can always follow the [MindsDB Getting Started](https://docs.mindsdb.com/info/) documentation if you need further information or want to install MindsDB by any other means other than Docker.
@@ -130,8 +125,8 @@ Now hit the `Test Connection` and once it returns success, click on `Finish`.
 
 ![image](Tables.PNG)
 
-Once connected to the mindsdb database, it will contain 2 tables `predictors` and `commands`. You can simply run a query `show tables;` to see these as shown in the snippet above.
-The `Predictors` table contains all the newly trained ML models as a new record. Each column in the `Predictors` table contains information about each of these models. You can always find more information by visiting [MindsDB Documentation](https://docs.mindsdb.com/sql/connect/local/) page.
+Once connected to the mindsdb database, it will contain 3 tables `predictors`, `commands` and `datasources`. You can simply run a query `show tables;` to see these as shown in the snippet above.
+The `Predictors` table contains all the newly trained ML models as a new record. Each column in the `Predictors` table contains information about each of these models. You can always find more information by visiting [MindsDB Documentation](https://docs.mindsdb.com/sql/connect/dbeaver/) page.
 
 This concludes the tutorial on how to deploy the MindsDB server on a Digital Ocean Droplet and connect to it using a local client. Please drop a like let me know in the comments if you found this useful or have any other suggestions.
 
