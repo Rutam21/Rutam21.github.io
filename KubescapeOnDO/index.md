@@ -16,11 +16,11 @@ As all of you know, Digital Ocean is a cloud computing service provider that off
 
 **Step 1:** Sign in to Digital Ocean or create an account if you don't have an account yet. You can [signup](https://try.digitalocean.com/freetrialoffer/) instantly and they would provide 100$ credits for the trial.
 
-![image](DOSignup.PNG)
+![image](DOSignup.png)
 
 **Step 2:** Tap on `Kubernetes` from the left navigation pane and wait till it opens up the next dashboard. Now hit the `Create a Kubernetes Cluster` to start with the cluster setup.
 
-![image](CreateK8.PNG)
+![image](CreateK8.png)
 
 **Step 3:** In the configuration dashboard, enter the details for the cluster as per your requirement. However, you can find a standard cluster configuration listed below to try this out.
 
@@ -39,16 +39,16 @@ As all of you know, Digital Ocean is a cloud computing service provider that off
 
 You can now click on `Create Cluster` to get the cluster provisioned for you (usually takes 4 mins).
 
-![image](CreateCluster.PNG)
+![image](CreateCluster.png)
 
 **Step 4:** Now we need to get connected to our cluster so that we can run a `Kubescape` scan on the cluster. Follow the steps below to get done with your cluster connection.
 
-![image](ClusterGetStarted.PNG)
+![image](ClusterGetStarted.png)
 
 - **Getting Started** <br/>
 Tap on `Get started` and choose a client that you want to use to interact with the cluster. We will also need to set up an authentication certificate to authorize the client to connect to the cluster (Validity 7 days).
 
-![image](K8sConnect.PNG)
+![image](K8sConnect.png)
 
 - **Connecting to Kubernetes** <br/>
 We can either set up an automated way to connect to the cluster (The authentication certificate gets automatically updated) or go with the manual method in which we need to update the certificate every 7 days. We will use the manual method for now for which we need to download the `cluster config` and run the command below.
@@ -59,24 +59,24 @@ cd ~/.kube && kubectl --kubeconfig="Your Config File Name" get nodes
 
 This should return you the list of nodes for your cluster.
 
-![image](Nodes.PNG)
+![image](Nodes.png)
 
 > **NOTE:** For the automated mode, you need to install and configure the `doctl`. You can find the installation steps [here](https://docs.digitalocean.com/reference/doctl/how-to/install/).
 
 - **Patch & minor upgrades** <br/>
 Here you can specify whether you want to apply minor version upgrades and patches to your clusters or not and which timeframe will be best to do so. For now, you can select `Automatically install minor version patches` and specify a time window when the cluster should upgrade, and then hit `Save and Continue`.
 
-![image](PatchNode.PNG)
+![image](PatchNode.png)
 
 - **Install 1-click Apps** <br/>
 This step enables you to choose and install apps in your cluster directly from the marketplace. You may add some apps or skip this step.
 
-![image](Apps.PNG)
+![image](Apps.png)
 
 - **Next Steps** <br/>
 The configuration ends with this step. Go ahead and download the cluster config and store it safely for future use and then click on `Great, I'm done` to complete the process.
 
-![image](Done.PNG)
+![image](Done.png)
 
 ## Installing Kubescape
 
@@ -108,7 +108,7 @@ You can also find the installation steps for other distributions [here](https://
 Set-ExecutionPolicy RemoteSigned -scope CurrentUser
 ```
 
-![image](KubescapeInstall.PNG)
+![image](KubescapeInstall.png)
 
 ## Running your first Kubescape Scan
 
@@ -128,11 +128,11 @@ We can transfer all the scan results to the cloud UI and interpret them in a bet
 
 **Step 1:** Create an account at Kubescape Cloud Portal if you don't have one yet. You can simply do that [here](https://portal.armo.cloud/).
 
-![image](KubescapeSignup.PNG)
+![image](KubescapeSignup.png)
 
 **Step 2:** Once you've created your account and signed in, you can see two commands on the page, one which installs Kubescape (which we have already done) and the other with the scan command with an `account token`.
 
-![image](KubescapeFirstDash.PNG)
+![image](KubescapeFirstDash.png)
 
 We can use the second command now to run the scan and push the results to our account's cloud UI.
 
@@ -140,11 +140,11 @@ We can use the second command now to run the scan and push the results to our ac
 kubescape scan --submit --account=YourAccountToken
 ```
 
-![image](Scan.PNG)
+![image](Scan.png)
 
 Towards the end of the run, you would find the URL mentioned where you can visualize all this information through the UI. You can also refresh the UI dashboard and the results will start populating with all the details.
 
-![image](ScanResults.PNG)
+![image](ScanResults.png)
 
 Damn! Isn't that cool? Well, with this you have already run your first cluster scan using Kubescape. You can also run scans specific to a framework such as [nsa](https://www.nsa.gov/Press-Room/News-Highlights/Article/Article/2716980/nsa-cisa-release-kubernetes-hardening-guidance/) or [MITRE ATT&CK®](https://www.microsoft.com/security/blog/2021/03/23/secure-containerized-environments-with-updated-threat-matrix-for-kubernetes/) or go ahead and scan any local `yaml` or `json` files to have vulnerable-free deployments.
 
